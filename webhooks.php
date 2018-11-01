@@ -55,7 +55,7 @@ function GetResponseText($message,$res_txt_por){
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
     }
-    print_r($arrayPostData);
+//    print_r($arrayPostData);
     replyMsg($arrayHeader,$arrayPostData);
 }
 
