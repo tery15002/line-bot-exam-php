@@ -58,8 +58,8 @@ function GetResponseText($message,$res_txt_por,$arrayHeader){
     }else if($message == 'google'){
         $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
     }
-    print_r($arrayHeader);
-    print_r($arrayPostData);
+//    print_r($arrayHeader);
+//    print_r($arrayPostData);
 
     replyMsg($arrayHeader,$arrayPostData);
 
