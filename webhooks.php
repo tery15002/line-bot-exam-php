@@ -42,9 +42,9 @@ $res_txt_por = ['tik' =>[
                 'google' => 'https://www.google.com/maps/search/?api=1&query='.$txt
                ];
 //print_r($message);
-GetResponseText($message,$res_txt_por);
+GetResponseText($message,$res_txt_por,$arrayHeader,$arrayPostData);
 
-function GetResponseText($message,$res_txt_por){
+function GetResponseText($message,$res_txt_por,$arrayHeader,$arrayPostData){
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $arrayPostData['messages'][0]['type'] = "text";
