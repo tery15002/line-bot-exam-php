@@ -20,7 +20,7 @@ function GetResponseText($message){
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
     $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = json_encode($arrayJson['events'])∂;
+    $arrayPostData['messages'][0]['text'] = json_encode($arrayJson['events']);
 
     replyMsg($arrayHeader,$arrayPostData);
 }
