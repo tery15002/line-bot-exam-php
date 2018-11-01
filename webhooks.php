@@ -12,7 +12,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-$message = "จะไป";
+$message = "จะไปบางขุนเทียน";
 
 $pos_por = strpos($message,"ป้ออ");
 
