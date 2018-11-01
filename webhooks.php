@@ -12,7 +12,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-$message = "ไปตาก";
+//$message = "ป้อออ";
 
 $pos_por = strpos($message,"ป้ออ");
 
@@ -41,6 +41,7 @@ $res_txt_por = ['tik' =>[
                         ],
                 'google' => 'https://www.google.com/maps/search/?api=1&query='.$txt
                ];
+//print_r($message);
 GetResponseText($message,$res_txt_por);
 
 function GetResponseText($message,$res_txt_por){
@@ -54,6 +55,7 @@ function GetResponseText($message,$res_txt_por){
         $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
     }
+    print_r($arrayPostData);
     replyMsg($arrayHeader,$arrayPostData);
 }
 
