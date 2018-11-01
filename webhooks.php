@@ -106,7 +106,6 @@ else if($message == "ลาก่อน"){
     replyMsg($arrayHeader,$arrayPostData);
 }
 */
-print_r($arrayPostData['messages']);
 
 function replyMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/reply";
