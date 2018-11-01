@@ -13,6 +13,16 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 $message = $arrayJson['events'][0]['message']['text'];
 
 $message = "สวัสดี";
+print_r($arrayJson['events']);
+GetResponseText($message);
+
+function GetResponseText($message){
+
+
+    //replyMsg($arrayHeader,$arrayPostData);
+}
+
+/*
 
 #ตัวอย่าง Message Type "Text"
 if($message == "สวัสดี"){
@@ -58,6 +68,7 @@ else if($message == "ลาก่อน"){
     $arrayPostData['messages'][1]['stickerId'] = "131";
     replyMsg($arrayHeader,$arrayPostData);
 }
+*/
 print_r($arrayPostData['messages']);
 
 function replyMsg($arrayHeader,$arrayPostData){
