@@ -12,14 +12,17 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-$message = "สวัสดี";
-print_r($arrayJson['events']);
+$message = "dev";
+
 GetResponseText($message);
 
 function GetResponseText($message){
 
+    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+    $arrayPostData['messages'][0]['type'] = "text";
+    $arrayPostData['messages'][0]['text'] = json_encode($arrayJson['events'])∂;
 
-    //replyMsg($arrayHeader,$arrayPostData);
+    replyMsg($arrayHeader,$arrayPostData);
 }
 
 /*
