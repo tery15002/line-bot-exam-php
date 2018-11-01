@@ -12,7 +12,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-//$message = "จะไปบ้าน";
+$message = "จะไป";
 
 $pos_por = strpos($message,"ป้ออ");
 
@@ -56,7 +56,7 @@ function GetResponseText($message,$res_txt_por,$arrayHeader,$arrayPostData){
     }else{
         $arrayPostData['messages'][0]['text'] = '..';
     }
-//    print_r($arrayPostData);
+    print_r($arrayPostData);
     replyMsg($arrayHeader,$arrayPostData);
 }
 
