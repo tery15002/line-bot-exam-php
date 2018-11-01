@@ -120,6 +120,7 @@ function replyMsg($arrayHeader,$arrayPostData){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
+    print_r($result);
     curl_close ($ch);
 }
 exit;
