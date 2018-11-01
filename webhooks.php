@@ -12,52 +12,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-//$message = "จะไปบางขุนเทียน";
-
-$pos_por = strpos($message,"ป้ออ");
-
-$pos_where = strpos($message,"ไป");
-
-if($pos_por !== false){
-    $message = 'tik';
-}
-
-$txt = null;
-if($pos_where !== false){
-    $explode_ = explode('ไป',$message);
-    $txt = $explode_[1];
-    $message = 'google';
-}
-
-$res_txt_por = ['tik' =>[
-                        'เรียกไม',
-                        'ไงลูก',
-                        'ไง',
-                        'ว่าไง',
-                        'รำคานนน',
-                        'ไอโง่',
-                        'กรี๊ดดดดดดด',
-                        'กรี๊ดดดดดดดดดดดควยต๊อบดดดดดดดดดดด'
-                        ],
-                'google' => 'https://www.google.com/maps/search/?api=1&query='.$txt
-               ];
-//print_r($message);
-GetResponseText($message,$res_txt_por,$arrayHeader);
-
-function GetResponseText($message,$res_txt_por,$arrayHeader){
-
-    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $arrayPostData['messages'][0]['type'] = "text";
-
-    if($message == 'tik'){
-        $arrayPostData['messages'][0]['text'] = $res_txt_por['tik'][array_rand($res_txt_por['tik'],1)];
-    }else if($message == 'google'){
-        $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
-    }
-    replyMsg($arrayHeader,$arrayPostData);
-}
-
-/*
+$message = "สวัสดี";
 
 #ตัวอย่าง Message Type "Text"
 if($message == "สวัสดี"){
@@ -103,7 +58,7 @@ else if($message == "ลาก่อน"){
     $arrayPostData['messages'][1]['stickerId'] = "131";
     replyMsg($arrayHeader,$arrayPostData);
 }
-*/
+print_r($arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){
     $strUrl = "https://api.line.me/v2/bot/message/reply";
