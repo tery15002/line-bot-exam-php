@@ -12,7 +12,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-//$message = "ป้อออ";
+//$message = "จะไปบ้าน";
 
 $pos_por = strpos($message,"ป้ออ");
 
@@ -47,13 +47,14 @@ GetResponseText($message,$res_txt_por);
 function GetResponseText($message,$res_txt_por){
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+    $arrayPostData['messages'][0]['type'] = "text";
 
     if($message == 'tik'){
-        $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $res_txt_por['tik'][array_rand($res_txt_por['tik'],1)];
     }else if($message == 'google'){
-        $arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
+    }else{
+        $arrayPostData['messages'][0]['text'] = '..';
     }
 //    print_r($arrayPostData);
     replyMsg($arrayHeader,$arrayPostData);
