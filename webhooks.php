@@ -16,7 +16,7 @@ $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 //รับข้อความจากผู้ใช้
 $message = $arrayJson['events'][0]['message']['text'];
 
-//$message = "จะไปบางขุนเทียน";
+$message = "จะไปบางขุนเทียน";
 
 $pos_por = strpos($message,"ป้ออ");
 
@@ -58,7 +58,11 @@ function GetResponseText($message,$res_txt_por,$arrayHeader){
     }else if($message == 'google'){
         $arrayPostData['messages'][0]['text'] = $res_txt_por['google'];
     }
+    print_r($arrayHeader);
+    print_r($arrayPostData);
+
     replyMsg($arrayHeader,$arrayPostData);
+
 }
 
 /*
@@ -120,7 +124,6 @@ function replyMsg($arrayHeader,$arrayPostData){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch);
-    print_r($result);
     curl_close ($ch);
 }
 exit;
